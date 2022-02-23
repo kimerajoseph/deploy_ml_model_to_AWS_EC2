@@ -43,26 +43,6 @@ def predict():
     # # Take a tax rate of 25% for income<58000 (unmarried) and 25% for income <115,000 (married)
     # # 45%, income < 275000 and unmarried. 600k threshold for married applicants
     int_list = list(map(int, processed_list))
-    # #criteria 1 not married and income < 58k
-    # if int_list[2] != 2 and int_list[-1] < 58000:
-    #     rate = 0.25
-    
-    # # married and income < 115k
-    # elif int_list[2] == 2 and int_list[-1] < 115000:
-    #     rate = 0.25
-
-    # # unmarried person earning between 58k and 275k
-    # elif int_list[2] != 2 and 58000 <= int_list[-1] <= 275000:
-    #     rate = 0.45
-    
-    # elif int_list[2] == 2 and 115000 <= int_list[-1] <= 600000:
-    #     rate = 0.45
-
-    # # all other cases, use a flat rate of 30%
-    # else:
-    #     rate = 0.3
-    
-    # amount = rate * int_list[-1]
 
     # call rates function from rates.py file
     amount = rates_function(int_list[2],int_list[-1])
