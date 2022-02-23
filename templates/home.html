@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Insurance Bill</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+  
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+ <div class="login">
+<div class="application-form">
+  <h1>Credit application form</h1>
+  <br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <!-- <input type="text" name="age" placeholder="Age" required="required" /><br>
+    	<input type="text" name="sex" placeholder="Sex" required="required" /><br>
+        <input type="text" name="bmi" placeholder="BMI" required="required" /><br>
+        <input type="text" name="children" placeholder="Children" required="required" /><br>
+        <input type="text" name="smoker" placeholder="Smoker" required="required" /><br>
+        <input type="text" name="region" placeholder="Region" required="required" /><br> -->
+        <div class="row">        
+          <input type="text" class="col-sm-5 m-1" id="fullName" name = "full_name" 
+          placeholder="Please enter your full name" required> 
+          <select name="gender" id="gender" class="col-sm-5 m-1" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+            <option value="2">Non binary</option>
+        </select>
+        </div>
+        
+      <div class="row">
+      <input type="number" id="age" name = "age" class="col-sm-5 m-1" placeholder="Please enter your age in years" required>
+      <select name="maritalStatus" id="maritalStatus" class="col-sm-5 m-1">
+        <option value="" disabled selected>Select your marital status</option>
+        <option value="2">Married</option>
+        <option value="3">Single / not married</option>
+        <option value="4">Separated</option>
+        <option value="5">Widow/Widower</option>
+    </select>
+    </div>
+    <div class="row">
+      <input type="number" class="col-sm-5 m-1" id="children" name = "children" 
+      placeholder="Please enter the number of children you have" required> 
+    
+      <input type="number"  id="dependants" name = "dependants" class="col-sm-5 m-1"
+      placeholder="Please enter the number of dependants" required> 
+    </div>
+ 
+    <div class="row">
+      <select name="incomeType" id="incomeType" class="col-sm-5 m-1" required>
+        <option value="" disabled selected>Select your income type</option>
+        <option value="1">Working</option>
+        <option value="2">Commercial associate</option>
+        <option value="3">Pensioner</option>
+        <option value="4">State servant</option>
+        <option value="5">Student</option>
+    </select>
+   
+    <select name="education" id="education" class="col-sm-5 m-1" required>
+      <option value="" disabled selected>Select your level of education</option>
+      <option value="1">Academic degree</option>
+      <option value="2">Higher education</option>
+      <option value="3">Secondary</option>
+      <option value="5">Lower secondary</option>
+      <option value="4">Others</option>
+  </select>
+    </div>
+    
+<div class="row">
+  <select name="occupation" id="occupation" class="col-sm-5 m-1" required>
+    <option value="" disabled selected>Select your occupation type</option>
+    <option value="1">Security</option>
+    <option value="2">Sales</option>
+    <option value="3">Accountants</option>
+    <option value="5">Managers</option>
+    <option value="13">Medicial</option>
+    <option value="8">Engineers</option>
+    <option value="5">Student</option>
+    <option value="16">Human Resources</option>
+    <option value="17">Real Estate</option>
+    <option value="18">Information Technology</option>
+    <option value="12">Semi-skilled labour</option>
+    <option value="15">Hospitality</option>
+    <option value="7">Other skilled labour</option>
+  </select>
+  <select name="housing" id="housing" class="col-sm-5 m-1" required>
+    <option value="" disabled selected>Select your housing type</option>
+    <option value="1">Apartment</option>
+    <option value="2">House</option>
+    <option value="4">With parents/Family</option>
+    <option value="5">Co-op apartment</option>
+    <option value="6">Office apartment</option>
+  </select>
+</div>
+<div class="row">
+  <select name="property" id="property" class="col-sm-5 m-1" required>
+    <option value="" disabled selected>Specify whether you own a property</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>                
+  </select>
+  <input type="text" class="col-sm-5 m-1" id="mobile" name = "mobile"  placeholder="Please enter your mobile number"> 
+</div>
+
+<div class="row">
+  <input type="text" class="col-sm-5 m-1" id="workPhone" name = "workPhone" 
+  placeholder="Please enter your work phone number"> 
+  <input type="email" class="col-sm-5 m-1" id="email" name = "email" 
+  placeholder="Please enter your email address eg ex@gmail.com"> 
+</div>
+
+<div class="row">
+  <input type="number" class="col-sm-5 m-1" id="empDuration" name = "empDuration" 
+  placeholder="Please enter no. months you have been employed " required> 
+  <input type="number" class="col-sm-5 m-1" id="income" name = "income" 
+  placeholder="Please enter your annual income" required> 
+</div>
+<br>
+<br>
+<div class="row">
+  <button type="submit" class="btn btn-primary btn-large col-sm-10">Apply</button>
+</div>
+       
+    </form>
+  </div>
+ 
+ </div>
+  
+</div>
+</body>
+</html>

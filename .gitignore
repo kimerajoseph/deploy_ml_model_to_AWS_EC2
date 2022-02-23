@@ -1,0 +1,6 @@
+links.txt
+*.log
+flaskapi.py
+myenv/
+test.ipynb
+test2.ipynb

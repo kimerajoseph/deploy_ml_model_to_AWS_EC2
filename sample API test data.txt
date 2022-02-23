@@ -1,0 +1,17 @@
+{
+  "gender":"male",
+  "age_years":36,
+  "marital_status":"married",
+  "no_of_children":3,
+  "no_of_dependants":6,
+  "income_type":"student",
+  "level_of_education":"secondary",
+  "occupation_type":"sales",
+  "housing_type":"apartment",
+  "property_owner":"no",
+  "mobile":"0700150620",
+  "work_phone":"0782637582",
+  "email":"jkimera5@gmail.com",
+  "months_employed":0,
+  "income":2000
+}

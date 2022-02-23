@@ -1,0 +1,11 @@
+*.log
+*.md
+*.sh
+links.txt
+flaskapi.py
+README.md
+myenv/
+!/entrypoint.sh
+*.ipynb
+
+
