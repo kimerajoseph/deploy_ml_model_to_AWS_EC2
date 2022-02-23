@@ -1,5 +1,5 @@
 # PROJECT
-## Improving new credit card/loan applications approval process using Machine Learning
+## Automating new credit card/loan applications approvals using Machine Learning
 ### Introduction
 Machine Learning, ML is becoming an integral part of all modern organization. In the finance setor, ML can be used to detect fraud, automate approval processes and trading activities, and provide financial advisory services to investors.
 
