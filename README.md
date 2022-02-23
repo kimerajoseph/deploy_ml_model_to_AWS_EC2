@@ -10,5 +10,5 @@ Machine Learning, ML is becoming an integral part of all modern organization. In
 4. Collect new data for future system improvements
 
 ## Data Source
-Project uses an open-source dataset from Kaggle found on the link below
+Project uses an open-source dataset from Kaggle found on this link
 https://www.kaggle.com/rikdifos/credit-card-approval-prediction/tasks?taskId=1416
