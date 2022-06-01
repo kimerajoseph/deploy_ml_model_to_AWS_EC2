@@ -12,3 +12,16 @@ Machine Learning, ML is becoming an integral part of all modern organization. In
 ## Data Source
 Project uses an open-source dataset from Kaggle found on this link
 https://www.kaggle.com/rikdifos/credit-card-approval-prediction/tasks?taskId=1416
+
+## How to deploy the app
+#### start minikube
+```
+minikube start
+```
+
+#### Get secrets specified as base64
+
+```
+echo -n myKUBEcluster | base64
+```
+
