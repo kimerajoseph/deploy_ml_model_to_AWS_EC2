@@ -13,7 +13,7 @@ Machine Learning, ML is becoming an integral part of all modern organization. In
 Project uses an open-source dataset from Kaggle found on this link
 https://www.kaggle.com/rikdifos/credit-card-approval-prediction/tasks?taskId=1416
 
-## How to deploy the app
+<!-- ## How to deploy the app
 #### start minikube
 ```
 minikube start
@@ -83,3 +83,4 @@ kubectl get pods
 ```
 minikube service flask-service
 ```
+ -->
